@@ -5,9 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:agent": "cd agent && python server.py",
+    "dev:full": "concurrently \"npm run dev:backend\" \"npm run dev\"",
+    "dev:full-ai": "concurrently \"npm run dev:backend\" \"npm run dev:agent\" \"npm run dev\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "install:backend": "cd backend && npm install",
+    "setup:agent": "cd agent && python -m venv venv && pip install -r requirements.txt"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
